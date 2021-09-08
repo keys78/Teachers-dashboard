@@ -1,13 +1,119 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Open+Sans:wght@200;300;400;500;600&display=swap');
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background: #EBEBEB;
+  margin: 0 auto;
+}
+
+:root {
+  --neutral:#fff;
+  --neutral-b:#000;
+  --primary: #B24962;
+  --secondary:#969CBF;
+  --advanced:#4E4848;
+  --tertiary:#EBEBEB;
+  --active:#5400FF;
+
+  --border:#A9A9A9;
+  --table-heading:#DEDADA;
+
+  --fontSize-xs:10px;
+  --fontSize-s:14px;
+  --fontSize-m:16px;
+  --fontSize-l:18px;
+  
+  --regular:200;
+  --semi-bold:500;
+  --bold:700;
+
+  --montserrat:'Montserrat', sans-serif;
+  --openSans:'Open Sans', sans-serif;
+ 
+}
+
+/* HOME */
+.admin{
+  margin-left: 24px;
+}
+.user-icon{
+  width: 40px;
+  height: 40px;
+}
+
+.initials{
+  margin-right:139px;
+}
+
+.navLink{
+  padding:7px 0 7px 13px;
+  margin-bottom: 20px;
+  color: var(--tertiary);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.navLink:hover{
+  color: var(--neutral-b);
+  background: var(--tertiary);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.active h1{
+  color: var(--neutral-b);
+  background: var(--tertiary);
+}
+
+.box {
+  padding:52px 10px;
+  text-align: center;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  border-radius: 10px;
+  width: 120px;
+  height: 120px;
+  font-size: var(--fontSize-s);
+  font-family: var(--openSans);
+}
+
+
+
+
+
+
+/* CLASS LIST */
+.roll-container{
+  margin-top: 24px;
+}
+
+.heading-container{
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 3fr 1fr 1fr 0.4fr;
+  background: var(--table-heading);
+  padding: 19px 0 19px 23px;
+}
+
+.heading-container div{
+  font-family: var(--montserrat);
+  font-weight: var(--bold);
+  font-size: var(--fontSize-s);
+}
+
+.lists-container{
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 3fr 1fr 1fr 0.4fr;
+  background: var(--neutral);
+  padding: 19px 0 19px 23px;
+  border: 1px solid var(--tertiary);
+  font-family: var(--openSans);
 }
