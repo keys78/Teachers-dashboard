@@ -54,33 +54,33 @@ export const rollCall = [
         category:'heading'
     },
     {
-        img:'Avatar',
+        picture:'https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png',
         name:'Zimba Nwagbo',
         gender:'Male',
         age:'23',
     },
     {
-        img:'Avatar',
+        picture:'https://image.flaticon.com/icons/png/512/194/194938.png',
         name:'Anazodo Felicia.',
-        gender:'Male',
+        gender:'Female',
         age:'23',
     },
     {
-        img:'Avatar',
+        picture:'https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png',
         name:'Chibuikem Onyegozirim H.',
         gender:'Male',
         age:'23',
     },
     {
-        img:'Avatar',
+        picture:'https://image.flaticon.com/icons/png/512/194/194938.png',
         name:'Amuche Helen',
         gender:'Female',
         age:'24',
     },
     {
-        img:'Avatar',
+        picture:'https://toppng.com/uploads/preview/trans-11551057317i6gw79kwfr.png',
         name:'Bethusala Ogriga',
-        gender:'Female',
+        gender:'Trans',
         age:'24',
     },
 ]

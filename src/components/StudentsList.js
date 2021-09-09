@@ -17,9 +17,9 @@ const StudentsList = ({ showAddModal, toggleAddModal, searchTerm }) => {
         <div>
             {students.filter((val) => {
                 if ({ searchTerm } === "") {
-                    return val="whdlsjanl"
+                    return val;
                 } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return val
+                    return val;
                 }
             }).sort((a, b) => a.name.localeCompare(b.name))
                 .map((student, i) => (

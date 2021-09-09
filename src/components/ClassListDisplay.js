@@ -8,7 +8,7 @@ const ClassListDisplay = ({toggleAddModal, searchTerm, setSearchTerm, showAddMod
     return (
         <section>
              <div className="flex justify-between items-center">
-                <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+                <Search setSearchTerm={setSearchTerm}/>
                 <Button onClick={toggleAddModal} text={"Add New Student"}/>
             </div>
 
@@ -27,7 +27,7 @@ const ClassListDisplay = ({toggleAddModal, searchTerm, setSearchTerm, showAddMod
                 )
             ))}
 
-            <StudentsList searchTerm={searchTerm} setSearchTerm={setSearchTerm} showAddModal={showAddModal} toggleAddModal={toggleAddModal}/>
+            <StudentsList searchTerm={searchTerm} showAddModal={showAddModal} toggleAddModal={toggleAddModal}/>
         </div>
 
         </section>
