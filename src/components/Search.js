@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const Search = () => {
+const Search = ({setSearchTerm}) => {
+
     return (
         <div>
-           <Input placeholder="Search..."/>
+           <Input placeholder="Search student..." onChange={event => {setSearchTerm(event.target.value)}}/>
         </div>
+
     )
 }
 

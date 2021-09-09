@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
-const Button = ({ text }) => {
+const Button = ({ text, onClick }) => {
     return (
         <ButtonCap
+            onClick={onClick}
             whileHover={{ scale: 0.95 }} transiton={{ type: 'spring', stifness: 300 }}
         >
             <Text>{text}</Text>
@@ -12,10 +14,11 @@ const Button = ({ text }) => {
     )
 }
 
-const ButtonCap = styled(motion.button)`
-   
-`
+Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+}
 
+const ButtonCap = styled(motion.button)``
 const Text = styled.h1`
     background-color: var(--primary);
     color: var(--neutral);

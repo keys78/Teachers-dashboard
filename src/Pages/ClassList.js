@@ -1,19 +1,19 @@
-import React from 'react'
-import Search from '../components/Search'
+import React, {useState} from 'react'
 import styled from 'styled-components'
-import Button from '../components/Button'
 import ClassListDisplay from '../components/ClassListDisplay'
 
 const ClassList = () => {
+    const [showAddModal, setShowAddModal] = useState()
+
+    const toggleAddModal = () => {
+        setShowAddModal(!showAddModal)
+    }
+
+    const [searchTerm, setSearchTerm] = useState('')
+
     return (
         <ClassListContainer>
-            <div className="flex justify-between items-center">
-                <Search />
-                <Button text={"Add New Student"}/>
-            </div>
-
-            <ClassListDisplay />
-
+            <ClassListDisplay searchTerm={searchTerm} setSearchTerm={setSearchTerm} showAddModal={showAddModal} toggleAddModal={toggleAddModal}/>
         </ClassListContainer>
     )
 }

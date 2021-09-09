@@ -54,24 +54,33 @@ export const rollCall = [
         category:'heading'
     },
     {
-        numTag:'1',
+        img:'Avatar',
+        name:'Zimba Nwagbo',
+        gender:'Male',
+        age:'23',
+    },
+    {
+        img:'Avatar',
+        name:'Anazodo Felicia.',
+        gender:'Male',
+        age:'23',
+    },
+    {
         img:'Avatar',
         name:'Chibuikem Onyegozirim H.',
         gender:'Male',
         age:'23',
     },
     {
-        numTag:'2',
         img:'Avatar',
-        name:'Chibuikem Onyegozirim H.',
-        gender:'Male',
-        age:'23',
+        name:'Amuche Helen',
+        gender:'Female',
+        age:'24',
     },
     {
-        numTag:'3',
         img:'Avatar',
-        name:'Chibuikem Onyegozirim H.',
-        gender:'Male',
-        age:'23',
+        name:'Bethusala Ogriga',
+        gender:'Female',
+        age:'24',
     },
 ]

@@ -11,12 +11,13 @@ const Sidenav = () => {
                 <NavLink
                     to={`${navLink.path}`}
                     exact
+                    key={i}
                 >
-                    <h1 className="navLink"
-                        whileHover={{ scale: 0.95 }} transiton={{ type: 'spring', stifness: 300 }}
-                        key={i} >
+                    <motion.h1
+                        className="navLink"
+                        whileHover={{ scale: 0.95 }} transiton={{ type: 'spring', stifness: 300 }}>
                         {navLink.text}
-                    </h1>
+                    </motion.h1>
                 </NavLink>
             )))}
         </SidenavContainer>
