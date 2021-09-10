@@ -17,21 +17,21 @@ const StudentsList = ({ showAddModal, toggleAddModal, searchTerm }) => {
         <div>
             {students.filter((val) => {
                 if ({ searchTerm } === "") {
-                    return val;
-                } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return val;
+                    return val
+                } else if (val.firstname.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    return val
                 }
-            }).sort((a, b) => a.name.localeCompare(b.name))
+            })
                 .map((student, i) => (
-                    (student.category != 'heading' &&
+                    (student.category !== 'heading' &&
                         <Student i={i} key={i} student={student} />
                     )
                 ))}
 
-            {showAddModal && 
-            <AddStudent toggleAddModal={toggleAddModal}
-             showAddModal={showAddModal} onAdd={addStudent} 
-            />}
+            {showAddModal &&
+                <AddStudent toggleAddModal={toggleAddModal}
+                    showAddModal={showAddModal} onAdd={addStudent}
+                />}
         </div>
     )
 }

@@ -13,7 +13,9 @@ const Student = ({ student, i }) => {
         >
             <div className="order1">{i + 1}</div>
             <Img className="order2" src={student.picture} />
-            <div className="order3">{student.name}</div>
+            <div className="order3">{student.firstname}</div>
+            <div className="order3">{student.middlename}</div>
+            <div className="order3">{student.lastname}</div>
             <div className="order4">{student.gender}</div>
             <div className="order5">{student.age}</div>
             {/* <div><img src={`${arrowRight}`}/></div> */}

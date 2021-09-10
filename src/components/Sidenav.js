@@ -10,7 +10,7 @@ const Sidenav = () => {
             {(navLinks.map((navLink, i) => (
                 <NavLink
                     to={`${navLink.path}`}
-                    exact
+                    exact={navLink.exact}
                     key={i}
                 >
                     <motion.h1

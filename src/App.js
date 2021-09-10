@@ -12,7 +12,7 @@ function App() {
       <Sidenav />
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/classlist" component={ClassList} exact />
+        <Route path="/classlist" component={ClassList} exact/>
         <Route path="/classlist/studentdetails/:id" component={StudentDetails} />
       </Switch>
     </Router>

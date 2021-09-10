@@ -12,10 +12,10 @@ const AddStudent = ({ onAdd, toggleAddModal }) => {
     const handleAddrTypeChange = (e) => {
         setGender(addrtype[e.target.value]
         )
-        if (gender != "Male" ) {
+        if (gender !== "Male" ) {
             setPicture('https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png')
         } 
-        if(gender != "Female" ){
+        if(gender !== "Female" ){
             setPicture('https://image.flaticon.com/icons/png/512/194/194938.png')
         } 
      
