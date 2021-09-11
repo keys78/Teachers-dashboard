@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text, onClick, onSubmit }) => {
     return (
         <ButtonCap
             onClick={onClick}
+            onSubmit={onSubmit}
             whileHover={{ scale: 0.95 }} transiton={{ type: 'spring', stifness: 300 }}
         >
             <Text>{text}</Text>

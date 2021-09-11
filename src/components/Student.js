@@ -1,24 +1,27 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-// import arrowRight from '../assets/Icon ionic-md-arrow-dropright.png'
+
 
 const Student = ({ student, i }) => {
     return (
-        <NavLink className="lists-container" 
-        to={{
-            pathname: `/classlist/studentdetails/${student.name}`,
-            state: { students: student }
-          }}
+        <NavLink className="lists-container"
+            to={{
+                pathname: `/classlist/studentdetails/${student.name} ${student.lastname}`,
+                state: { students: student }
+            }}
         >
             <div className="order1">{i + 1}</div>
             <Img className="order2" src={student.picture} />
-            <div className="order3">{student.firstname}</div>
-            <div className="order3">{student.middlename}</div>
-            <div className="order3">{student.lastname}</div>
+            <div className="order3">
+                {student.name} &nbsp;
+                {student.middleName} &nbsp;
+                {student.lastname}
+            </div>
             <div className="order4">{student.gender}</div>
             <div className="order5">{student.age}</div>
-            {/* <div><img src={`${arrowRight}`}/></div> */}
+            {/* <div className="order5">{student.value}</div> */}
+
             <div><img src="../assets/Icon ionic-md-arrow-dropright.png" /></div>
         </NavLink>
     )

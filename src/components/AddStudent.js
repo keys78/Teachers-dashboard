@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
+import Button from './Button'
+// import Select from 'react-select'
+// import countryList from 'react-select-country-list'
+import GuardiansInfo from './GuardiansInfo'
 
-const AddStudent = ({ onAdd, toggleAddModal }) => {
+
+const AddStudent = ({ onAdd, toggleAddModal, }) => {
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const [gender, setGender] = useState('')
@@ -12,13 +17,26 @@ const AddStudent = ({ onAdd, toggleAddModal }) => {
     const handleAddrTypeChange = (e) => {
         setGender(addrtype[e.target.value]
         )
-        if (gender !== "Male" ) {
+        if (gender !== "Male") {
             setPicture('https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png')
-        } 
-        if(gender !== "Female" ){
+        }
+        if (gender !== "Female") {
             setPicture('https://image.flaticon.com/icons/png/512/194/194938.png')
-        } 
-     
+        }
+
+    }
+
+    // const [value, setValue] = useState('')
+    // const options = useMemo(() => countryList().getData(), [])
+
+    // const changeHandler = value => {
+    //     setValue(value)
+    // }
+
+    const [swap, setSwap] = useState(true);
+
+    const swapPage = () => {
+        setSwap(!swap)
     }
 
     const onSubmit = (e) => {
@@ -29,7 +47,7 @@ const AddStudent = ({ onAdd, toggleAddModal }) => {
             return
         }
 
-        onAdd({ name, age, gender, picture })
+        onAdd({ name, age, gender, picture, })
 
         setName('')
         setAge('')
@@ -38,42 +56,57 @@ const AddStudent = ({ onAdd, toggleAddModal }) => {
     }
 
     return (
-        <form className="bg-gray-500 absolute top-0 left-10 w-9/12" onSubmit={onSubmit}>
+        <div className="bg-gray-500 absolute top-10 right-0 h-screen w-10/12">
+            <form onSubmit={onSubmit}>
 
-            <div onClick={toggleAddModal} className="cursor-pointer">Close</div>
+                <div onClick={toggleAddModal} className="cursor-pointer">Close</div>
 
+                {swap && <div>
+                <div className="form-control">
+                    <label>First name</label>
+                    <input type="text" placeholder="Name of student"
+                        value={name} onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
+                <div className="form-control">
+                    <label>Middle name</label>
+                    <input type="text" placeholder="Name of student"
+                        value={name} onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
+                <div className="form-control">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Name of student"
+                        value={name} onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
+                <div className="form-control">
+                    <label>Age</label>
+                    <input type="text" placeholder="Age"
+                        value={age} onChange={(e) => setAge(e.currentTarget.value)}
+                    />
+                </div>
 
-            <div className="form-control">
-                <label>Name</label>
-                <input type="text" placeholder="Name of student"
-                    value={name} onChange={(e) => setName(e.target.value)}
-                />
-            </div>
-            <div className="form-control">
-                <label>Age</label>
-                <input type="text" placeholder="Age"
-                    value={age} onChange={(e) => setAge(e.currentTarget.value)}
-                />
-            </div>
+                <label for="role">Select Gender:</label>
+                < select onChange={e => handleAddrTypeChange(e)}
+                >
+                    {Add.map((address, key) =>
+                        <option key={key} value={key}>{address} </option>)
+                    }
+                </select >
+                <div onClick={swapPage}>FORWARD</div>
+                </div>}
 
-            <label for="role">Select Gender:</label>
-            < select onChange={e => handleAddrTypeChange(e)} 
-            >
-                {Add.map((address, key) =>
-                    <option key={key} value={key}>{address} </option>)
-                }
-            </select >
+                {/* <Select options={options} value={value.label} onChange={changeHandler} /> */}
 
-            {/* <div className="register_profile_image">
-                <input id="profilePic" type="file" onChange={onChangePicture} />
-            </div> */}
-            {/* <div className="previewProfilePic">
-                <img className="playerProfilePic_home_tile" src={imgData} />
-              </div> */}
+                {/* <input type="submit" value="Save"/> */}
 
-            <input type="submit" value="Save"
-            />
-        </form>
+                {!swap && <GuardiansInfo onClick={swapPage} />}
+                 <Button text={'SAVE'}/>
+
+            </form>
+
+        </div>
     )
 
 }

@@ -62,21 +62,21 @@ export const rollCall = [
     // },
     
     {
-        firstname: 'Anazodo',
-        middlename: ' Felicia',
+        name: 'Anazodo',
+        middleName:'Felicia',
         lastname: 'Goron',
         picture: 'https://image.flaticon.com/icons/png/512/194/194938.png',
         gender: 'Female',
         age: '23',
         nationality: 'Nigerian',
-        gurdians_Info: {
+        guardians_Info: {
             relationship: 'Father',
             title: 'Chief',
             name: 'Anazodo Augustus Gbaraba',
             phoneNumber: '0832486442',
             email: 'anazodo@gmail.com',
             address: '145 Upper Iweka rd. Obosi',
-            ocuppation: 'Tech Lawyer',
+            occupation: 'Tech Lawyer',
             workMobileNumber: '8394yru02',
             workAddress: 'Uk, Houston',
         }
@@ -84,21 +84,21 @@ export const rollCall = [
     },
 
     {
-        firstname: 'Zamuri',
-        middlename: ' koko',
+        name: 'Zamuri',
+        middleName:' koko',
         lastname: 'Bode',
         picture: 'https://image.flaticon.com/icons/png/512/194/194938.png',
         gender: 'Male',
         age: '28',
         nationality: 'Ghana',
-        gurdians_Info: {
+        guardians_Info: {
             relationship: 'Father',
             title: 'Chief',
             name: 'Anazodo Augustus Gbaraba',
             phoneNumber: '0832486442',
             email: 'anazodo@gmail.com',
             address: '145 Upper Iweka rd. Obosi',
-            ocuppation: 'Tech Lawyer',
+            occupation: 'Fulani HerdsMan',
             workMobileNumber: '8394yru02',
             workAddress: 'Uk, Houston',
         }
