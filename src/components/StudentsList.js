@@ -15,7 +15,7 @@ const StudentsList = ({ showAddModal, toggleAddModal, searchTerm }) => {
     }
     return (
         <div>
-            {/* {students.filter((val) => {
+            {students.filter((val) => {
                 if ({ searchTerm } === "") {
                     return val
                 } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -23,8 +23,8 @@ const StudentsList = ({ showAddModal, toggleAddModal, searchTerm }) => {
                 ) {
                     return val
                 }
-            }).sort((a, b) => a.name.localeCompare(b.name)) */}
-                {students.map((student, i) => (
+            }).sort((a, b) => a.name.localeCompare(b.name))
+                .map((student, i) => (
                     (student.category !== 'heading' &&
                         <Student i={i} key={i} student={student} />
                     )

@@ -6,7 +6,7 @@ import GuardiansInfo from './GuardiansInfo'
 
 
 const AddStudent = ({ onAdd, toggleAddModal, }) => {
-    const [relationship, setRelationship] = useState('')
+    const [GI_relationship, setRelationship] = useState('')
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const [gender, setGender] = useState('')
@@ -48,7 +48,7 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
             return
         }
 
-        onAdd({ name, age, gender, picture, relationship })
+        onAdd({ name, age, gender, picture, GI_relationship })
 
         setName('')
         setAge('')
@@ -102,7 +102,7 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
 
                 {/* <input type="submit" value="Save"/> */}
 
-                {!swap && <GuardiansInfo relationship={relationship} setRelationship={setRelationship} onClick={swapPage} />}
+                {!swap && <GuardiansInfo relationship={GI_relationship} setRelationship={setRelationship} onClick={swapPage} />}
                 <Button text={'SAVE'} />
 
             </form>

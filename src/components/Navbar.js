@@ -25,6 +25,8 @@ const NavbarContainer = styled.div`
     background: var(--neutral);
     box-shadow: 0px 3px 6px #00000029;
     margin-left: 219px;
+    position: sticky;
+    top:0;
 `
 
 const User = styled.h1`

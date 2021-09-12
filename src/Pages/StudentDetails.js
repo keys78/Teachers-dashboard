@@ -25,7 +25,7 @@ const StudentDetails = () => {
             <div>nationality:{state.students.nationality}</div>
 
 
-            <div>relationship:{state.students.relationship}</div>
+            <div>relationship:{state.students.GI_relationship}</div>
             {/* <div>relationship:{state.students.guardians_Info.relationship}</div> */}
             {/* <div>Name:{state.students.guardians_Info.name}</div>
             <div>email:{state.students.guardians_Info.email}</div>

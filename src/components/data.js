@@ -60,48 +60,48 @@ export const rollCall = [
     //     gender: 'Male',
     //     age: '23',
     // },
-    
+
     {
         name: 'Anazodo',
-        middleName:'Felicia',
+        middleName: 'Felicia',
         lastname: 'Goron',
         picture: 'https://image.flaticon.com/icons/png/512/194/194938.png',
         gender: 'Female',
         age: '23',
         nationality: 'Nigerian',
-        guardians_Info: {
-            relationship: 'Father',
-            title: 'Chief',
-            name: 'Anazodo Augustus Gbaraba',
-            phoneNumber: '0832486442',
-            email: 'anazodo@gmail.com',
-            address: '145 Upper Iweka rd. Obosi',
-            occupation: 'Tech Lawyer',
-            workMobileNumber: '8394yru02',
-            workAddress: 'Uk, Houston',
-        }
+        // let GI = Guardian_Info
+
+        GI_relationship: 'Father',
+        GI_title: 'Chief',
+        GI_name: 'Anazodo Augustus Gbaraba',
+        GI_phoneNumber: '0832486442',
+        GI_email: 'anazodo@gmail.com',
+        GI_address: '145 Upper Iweka rd. Obosi',
+        GI_occupation: 'Tech Lawyer',
+        GI_workMobileNumber: '8394yru02',
+        GI_workAddress: 'Uk, Houston',
 
     },
 
     {
         name: 'Zamuri',
-        middleName:' koko',
+        middleName: ' koko',
         lastname: 'Bode',
         picture: 'https://image.flaticon.com/icons/png/512/194/194938.png',
         gender: 'Male',
         age: '28',
         nationality: 'Ghana',
-        guardians_Info: [{
-            relationship: 'Father',
-            title: 'Chief',
-            name: 'Anazodo Augustus Gbaraba',
-            phoneNumber: '0832486442',
-            email: 'anazodo@gmail.com',
-            address: '145 Upper Iweka rd. Obosi',
-            occupation: 'Fulani HerdsMan',
-            workMobileNumber: '8394yru02',
-            workAddress: 'Uk, Houston',
-        }]
+        // let GI = Guardian_Info
+
+        GI_relationship: 'Father',
+        GI_title: 'Chief',
+        GI_name: 'Anazodo Augustus Gbaraba',
+        GI_phoneNumber: '0832486442',
+        GI_email: 'anazodo@gmail.com',
+        GI_address: '145 Upper Iweka rd. Obosi',
+        GI_occupation: 'Fulani HerdsMan',
+        GI_workMobileNumber: '8394yru02',
+        GI_workAddress: 'Uk, Houston',
 
     },
 

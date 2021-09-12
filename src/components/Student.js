@@ -20,12 +20,7 @@ const Student = ({ student, i }) => {
             </div>
             <div className="order4">{student.gender}</div>
             <div className="order5">{student.age}</div>
-            <div className="order5">{student.guardians_Info.occupation}</div>
-            <div className="order5">{student.guardians_Info.relationship}</div>
-            {/* <div className="order5">{student.relationship}</div> */}
             {/* <div className="order5">{student.value}</div> */}
-
-            {/* <div>RELA{student.guardians_Info.relationship}</div> */}
             <div><img src="../assets/Icon ionic-md-arrow-dropright.png" /></div>
         </NavLink>
     )
