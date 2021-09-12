@@ -25,13 +25,14 @@ const StudentDetails = () => {
             <div>nationality:{state.students.nationality}</div>
 
 
-            <div>relationship:{state.students.guardians_Info.relationship}</div>
-            <div>Name:{state.students.guardians_Info.name}</div>
+            <div>relationship:{state.students.relationship}</div>
+            {/* <div>relationship:{state.students.guardians_Info.relationship}</div> */}
+            {/* <div>Name:{state.students.guardians_Info.name}</div>
             <div>email:{state.students.guardians_Info.email}</div>
             <div>address:{state.students.guardians_Info.address}</div>
             <div>occupation:{state.students.guardians_Info.occupation}</div>
             <div>WorkMobileNumber:{state.students.guardians_Info.workMobileNumber}</div>
-            <div>WorkAddress:{state.students.guardians_Info.workAddress}</div>
+            <div>WorkAddress:{state.students.guardians_Info.workAddress}</div> */}
         </StudentDetailsContainer>
     )
 }

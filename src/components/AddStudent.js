@@ -6,6 +6,7 @@ import GuardiansInfo from './GuardiansInfo'
 
 
 const AddStudent = ({ onAdd, toggleAddModal, }) => {
+    const [relationship, setRelationship] = useState('')
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const [gender, setGender] = useState('')
@@ -47,7 +48,7 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
             return
         }
 
-        onAdd({ name, age, gender, picture, })
+        onAdd({ name, age, gender, picture, relationship })
 
         setName('')
         setAge('')
@@ -62,47 +63,47 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
                 <div onClick={toggleAddModal} className="cursor-pointer">Close</div>
 
                 {swap && <div>
-                <div className="form-control">
-                    <label>First name</label>
-                    <input type="text" placeholder="Name of student"
-                        value={name} onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div className="form-control">
-                    <label>Middle name</label>
-                    <input type="text" placeholder="Name of student"
-                        value={name} onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div className="form-control">
-                    <label>Last Name</label>
-                    <input type="text" placeholder="Name of student"
-                        value={name} onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div className="form-control">
-                    <label>Age</label>
-                    <input type="text" placeholder="Age"
-                        value={age} onChange={(e) => setAge(e.currentTarget.value)}
-                    />
-                </div>
+                    <div className="form-control">
+                        <label>First name</label>
+                        <input type="text" placeholder="Name of student"
+                            value={name} onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label>Middle name</label>
+                        <input type="text" placeholder="Name of student"
+                            value={name} onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Name of student"
+                            value={name} onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label>Age</label>
+                        <input type="text" placeholder="Age"
+                            value={age} onChange={(e) => setAge(e.currentTarget.value)}
+                        />
+                    </div>
 
-                <label for="role">Select Gender:</label>
-                < select onChange={e => handleAddrTypeChange(e)}
-                >
-                    {Add.map((address, key) =>
-                        <option key={key} value={key}>{address} </option>)
-                    }
-                </select >
-                <div onClick={swapPage}>FORWARD</div>
+                    <label for="role">Select Gender:</label>
+                    < select onChange={e => handleAddrTypeChange(e)}
+                    >
+                        {Add.map((address, key) =>
+                            <option key={key} value={key}>{address} </option>)
+                        }
+                    </select >
+                    <div onClick={swapPage}>FORWARD</div>
                 </div>}
 
                 {/* <Select options={options} value={value.label} onChange={changeHandler} /> */}
 
                 {/* <input type="submit" value="Save"/> */}
 
-                {!swap && <GuardiansInfo onClick={swapPage} />}
-                 <Button text={'SAVE'}/>
+                {!swap && <GuardiansInfo relationship={relationship} setRelationship={setRelationship} onClick={swapPage} />}
+                <Button text={'SAVE'} />
 
             </form>
 

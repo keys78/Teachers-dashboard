@@ -91,7 +91,7 @@ export const rollCall = [
         gender: 'Male',
         age: '28',
         nationality: 'Ghana',
-        guardians_Info: {
+        guardians_Info: [{
             relationship: 'Father',
             title: 'Chief',
             name: 'Anazodo Augustus Gbaraba',
@@ -101,7 +101,7 @@ export const rollCall = [
             occupation: 'Fulani HerdsMan',
             workMobileNumber: '8394yru02',
             workAddress: 'Uk, Houston',
-        }
+        }]
 
     },
 
