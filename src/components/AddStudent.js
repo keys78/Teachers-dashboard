@@ -62,7 +62,8 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
             return
         }
 
-        onAdd({ name, age, gender, picture, GI_relationship,
+        onAdd({
+            name, age, gender, picture, GI_relationship,
             GI_title, GI_name, GI_phoneNumber, GI_email,
             GI_address, GI_occupation, GI_workMobileNumber, GI_workAddress,
         })
@@ -78,90 +79,96 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
     let type = 'text'
 
     return (
-        <AddModal>
-            <form onSubmit={onSubmit}>
-                <p onClick={toggleAddModal}>X</p>
+        <AnimatePresence>
+            <AddModal
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 300, opacity: 0 }}>
+                <form onSubmit={onSubmit}>
+                    <p onClick={toggleAddModal}>X</p>
 
-                <AnimatePresence>
-                    {swap && <motion.div
-                        initial={{ x: 300, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: 300, opacity: 0 }}
-                    >
-                        <div>
-                            <Upload></Upload>
-                        </div>
+                    <AnimatePresence>
+                        {swap && <motion.div
 
-                        <Basic_Info>Basic Info</Basic_Info>
-
-                        <InputsContainer>
+                        >
                             <div>
-                                <Label htmlFor="name">First name</Label>
-                                <Input type={type} placeholder={placeholder} value={name} onChange={(e) => setName(e.target.value)} />
+                                <Upload></Upload>
                             </div>
 
+                            <Basic_Info>Basic Info</Basic_Info>
 
-                            <div>
-                                <Label htmlFor="middle-name">Middle name</Label>
-                                <Input type={type} placeholder={placeholder} value={middleName} onChange={(e) => setMiddleName(e.target.value)} />
-                            </div>
-
-                            <div>
-                                <Label htmlFor="middle-name">Last name</Label>
-                                <Input type={type} placeholder={placeholder} value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                            </div>
-
-                            <div>
-                                <Label htmlFor="last-name">Age</Label>
-                                <Input type={type} placeholder={placeholder} value={age} onChange={(e) => setAge(e.currentTarget.value)} />
-                            </div>
-
-                            <div>
-                                <Label htmlFor="role">Gender select</Label>
-                                < select onChange={e => handleAddrTypeChange(e)}>
-                                    {Add.map((address, key) =>
-                                        <option key={key} value={key}>{address} </option>)
-                                    }
-                                </select >
-                            </div>
-
-                            <ForwardIcon onClick={swapPage}
-                                whileHover={{ scale: 0.9 }} transiton={{ type: 'spring', stifness: 300 }} >
-                                <img src="../assets/Group 55.png" alt="arrow-forward" />
-                            </ForwardIcon>
-
-                        </InputsContainer>
-                    </motion.div>}
-                </AnimatePresence>
+                            <InputsContainer>
+                                <div>
+                                    <Label htmlFor="name">First name</Label>
+                                    <Input type={type} placeholder={placeholder} value={name} onChange={(e) => setName(e.target.value)} />
+                                </div>
 
 
-                {/* <Select options={options} value={value.label} onChange={changeHandler} /> */}
-                {/* <input type="submit" value="Save"/> */}
+                                <div>
+                                    <Label htmlFor="middle-name">Middle name</Label>
+                                    <Input type={type} placeholder={placeholder} value={middleName} onChange={(e) => setMiddleName(e.target.value)} />
+                                </div>
 
-                {!swap && <GuardiansInfo 
-                GI_relationship={GI_relationship} setGIRelationship={setRelationship}
-                GI_title={GI_title} setGITitle={setGITitle}
-                GI_name={GI_name} setGIName={setGIName}
-                GI_phoneNumber={GI_phoneNumber} setGIPhoneNumber={setGIPhoneNumber}
-                GI_email={GI_email} setGIEmail={setGIEmail}
-                GI_address={GI_address} setGIAddress={setGIAddress}
-                GI_occupation={GI_occupation} setGIOccupation={setGIOccupation}
-                GI_workMobileNumber={GI_workMobileNumber} setGIWorkMobileNumber={setGIWorkMobileNumber}
-                GI_workAddress={GI_workAddress} setWorkAddress={setWorkAddress}
-                onClick={swapPage} />}
+                                <div>
+                                    <Label htmlFor="middle-name">Last name</Label>
+                                    <Input type={type} placeholder={placeholder} value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                </div>
 
-                <SaveButton>
-                    <Button text={'SAVE'} />
-                </SaveButton>
+                                <div>
+                                    <Label htmlFor="last-name">Age</Label>
+                                    <Input type={type} placeholder={placeholder} value={age} onChange={(e) => setAge(e.currentTarget.value)} />
+                                </div>
 
-            </form>
+                                <div>
+                                    <Label htmlFor="role">Gender select</Label>
+                                    < select onChange={e => handleAddrTypeChange(e)}>
+                                        {Add.map((address, key) =>
+                                            <option key={key} value={key}>{address} </option>)
+                                        }
+                                    </select >
+                                </div>
 
-        </AddModal>
+                                <ForwardIcon onClick={swapPage}
+                                    whileHover={{ scale: 0.9 }} transiton={{ type: 'spring', stifness: 300 }} >
+                                    <img src="../assets/Group 55.png" alt="arrow-forward" />
+                                </ForwardIcon>
+
+                            </InputsContainer>
+                        </motion.div>}
+                    </AnimatePresence>
+
+
+                    {/* <Select options={options} value={value.label} onChange={changeHandler} /> */}
+                    {/* <input type="submit" value="Save"/> */}
+
+                    {
+                        !swap && <GuardiansInfo
+                            GI_relationship={GI_relationship} setGIRelationship={setRelationship}
+                            GI_title={GI_title} setGITitle={setGITitle}
+                            GI_name={GI_name} setGIName={setGIName}
+                            GI_phoneNumber={GI_phoneNumber} setGIPhoneNumber={setGIPhoneNumber}
+                            GI_email={GI_email} setGIEmail={setGIEmail}
+                            GI_address={GI_address} setGIAddress={setGIAddress}
+                            GI_occupation={GI_occupation} setGIOccupation={setGIOccupation}
+                            GI_workMobileNumber={GI_workMobileNumber} setGIWorkMobileNumber={setGIWorkMobileNumber}
+                            GI_workAddress={GI_workAddress} setWorkAddress={setWorkAddress}
+                            onClick={swapPage}
+                        />
+                    }
+
+                    <SaveButton>
+                        <Button text={'SAVE'} />
+                    </SaveButton>
+
+                </form>
+
+            </AddModal>
+        </AnimatePresence>
     )
 
 }
 
-const AddModal = styled.section`
+const AddModal = styled(motion.section)`
     background:var(--tertiary);
     position: absolute;
     top:64px;

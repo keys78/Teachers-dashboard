@@ -1,46 +1,100 @@
 import React from 'react'
 import { useLocation, useHistory } from "react-router-dom";
 import styled from 'styled-components';
-import Button from '../components/Button';
 
 const StudentDetails = () => {
     const { state } = useLocation();
     const history = useHistory();
 
-    const onClick = () =>{
+    const onClick = () => {
         history.goBack()
     }
 
 
     return (
-        <StudentDetailsContainer className="text-2xl text-black">
-            <Button text={'Go Back'} onClick={onClick}/>
-            Student Details
-            <div className="w-40 h-40 my-8"><img className="rounded-full" src={state.students.picture} /></div>
-            <div>Name:{state.students.name}</div>
-            <div>Name:{state.students.middleName}</div>
-            <div>Name:{state.students.lastname}</div>
-            <div>gender:{state.students.gender}</div>
-            <div>age:{state.students.age}</div>
-            <div>nationality:{state.students.nationality}</div>
+        <StudentDetailsContainer>
+            <div className="text-sm" onClick={onClick}>
+                <img src="../assets/Group 55.png" alt="arrow-back" />
+            </div>
+            
+            <Avatar>
+                <img className="rounded-full" src={state.students.picture} />
+            </Avatar>
 
+            <Basic_Info>Basic Info</Basic_Info>
 
-            <div>relationship:{state.students.GI_relationship}</div>
-            <div>relationship:{state.students.GI_name}</div>
-            {/* <div>relationship:{state.students.guardians_Info.relationship}</div> */}
-            {/* <div>Name:{state.students.guardians_Info.name}</div>
-            <div>email:{state.students.guardians_Info.email}</div>
-            <div>address:{state.students.guardians_Info.address}</div>
-            <div>occupation:{state.students.guardians_Info.occupation}</div>
-            <div>WorkMobileNumber:{state.students.guardians_Info.workMobileNumber}</div>
-            <div>WorkAddress:{state.students.guardians_Info.workAddress}</div> */}
+            <DetailsContainer>
+                <div>
+                    <Label>First name</Label>
+                    <ItemTitle>{state.students.name}</ItemTitle>
+                </div>
+
+                <div>
+                    <Label>Middle name</Label>
+                    <ItemTitle>{state.students.middleName}</ItemTitle>
+                </div>
+
+                <div>
+                    <Label>Last name</Label>
+                    <ItemTitle>{state.students.lastname}</ItemTitle>
+                </div>
+
+                <div>
+                    <Label>Gender</Label>
+                    <ItemTitle>{state.students.gender}</ItemTitle>
+                </div>
+
+                <div>
+                    <Label>Age</Label>
+                    <ItemTitle>{state.students.age}</ItemTitle>
+                </div>
+
+                <div>
+                    <Label>Nationality</Label>
+                    <ItemTitle>{state.students.nationality}</ItemTitle>
+                </div>
+
+                <Basic_Info>Attendance</Basic_Info>
+
+            </DetailsContainer>
+
         </StudentDetailsContainer>
     )
 }
 
 const StudentDetailsContainer = styled.section`
-    margin-left: 220px;
-    /* padding:16px 139px 0 23px; */
+    margin:0 0 0 220px;
+    padding:0px 566px 0 16px;
 `
-
+const DetailsContainer = styled.div`
+    padding-top:24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 109px;
+    grid-row-gap: 35px;
+`
+const Label = styled.label`
+    display: block;
+    font-size: var(--fontSize-s);
+    font-family: var(--montserrat);
+    font-weight: var(--semi-bold);
+    margin-bottom: 10px;
+`
+const ItemTitle = styled.h1`
+    display: block;
+    font-size: var(--fontSize-l);
+    font-family: var(--montserrat);
+    font-weight: var(--bold);
+`
+const Avatar = styled.div`
+    padding-top: 100px;
+    height: 100px;
+    width: 100px;
+`
+const Basic_Info = styled.h1`
+    font-size: var(--fontSize-xl);
+    font-family: var(--montserrat) ;
+    font-weight: var(--bold);
+    margin-top: 136px;
+`
 export default StudentDetails

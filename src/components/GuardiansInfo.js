@@ -18,63 +18,69 @@ const GuardiansInfo = ({ onClick,
     let type = 'text'
 
     return (
-        <section>
-            <Guardian_Info>Guardian Info</Guardian_Info>
-            <InputsContainer>
-                <div className="order-1">
-                    <Label htmlFor="name">Relationship</Label>
-                    <Input type={type} placeholder={placeholder}
-                        value={GI_relationship} onChange={(e) => setGIRelationship(e.target.value)} />
-                </div>
+        <AnimatePresence>
+            <motion.section
+                initial={{ x: -300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 300, opacity: 0 }}
+            >
+                <Guardian_Info>Guardian Info</Guardian_Info>
+                <InputsContainer>
+                    <div className="order-1">
+                        <Label htmlFor="name">Relationship</Label>
+                        <Input type={type} placeholder={placeholder}
+                            value={GI_relationship} onChange={(e) => setGIRelationship(e.target.value)} />
+                    </div>
 
-                <div className="order-2">
-                    <Label htmlFor="name">Guardian's Title</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_title} onChange={(e) => setGITitle(e.target.value)} />
-                </div>
+                    <div className="order-2">
+                        <Label htmlFor="name">Guardian's Title</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_title} onChange={(e) => setGITitle(e.target.value)} />
+                    </div>
 
-                <div className="order-3">
-                    <Label htmlFor="name">Guardian's name</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_name} onChange={(e) => setGIName(e.target.value)} />
-                </div>
+                    <div className="order-3">
+                        <Label htmlFor="name">Guardian's name</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_name} onChange={(e) => setGIName(e.target.value)} />
+                    </div>
 
-                <div className="order-4">
-                    <Label htmlFor="name">Phone number</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_phoneNumber} onChange={(e) => setGIPhoneNumber(e.target.value)} />
-                </div>
+                    <div className="order-4">
+                        <Label htmlFor="name">Phone number</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_phoneNumber} onChange={(e) => setGIPhoneNumber(e.target.value)} />
+                    </div>
 
-                <div className="order-5">
-                    <Label htmlFor="name">Email</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_email} onChange={(e) => setGIEmail(e.target.value)} />
-                </div>
+                    <div className="order-5">
+                        <Label htmlFor="name">Email</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_email} onChange={(e) => setGIEmail(e.target.value)} />
+                    </div>
 
-                <div className="order-6">
-                    <Label htmlFor="name">Residence Address</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_address} onChange={(e) => setGIAddress(e.target.value)} />
-                </div>
+                    <div className="order-6">
+                        <Label htmlFor="name">Residence Address</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_address} onChange={(e) => setGIAddress(e.target.value)} />
+                    </div>
 
-                <div className="order-7">
-                    <Label htmlFor="name">Occupation</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_occupation} onChange={(e) => setGIOccupation(e.target.value)} />
-                </div>
+                    <div className="order-7">
+                        <Label htmlFor="name">Occupation</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_occupation} onChange={(e) => setGIOccupation(e.target.value)} />
+                    </div>
 
-                <div className="order-8">
-                    <Label htmlFor="name">Work Mobile Phone</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_workMobileNumber} onChange={(e) => setGIWorkMobileNumber(e.target.value)} />
-                </div>
+                    <div className="order-8">
+                        <Label htmlFor="name">Work Mobile Phone</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_workMobileNumber} onChange={(e) => setGIWorkMobileNumber(e.target.value)} />
+                    </div>
 
-                <div className="order-9">
-                    <Label htmlFor="name">Work Address</Label>
-                    <Input type={type} placeholder={placeholder} value={GI_workAddress} onChange={(e) => setWorkAddress(e.target.value)} />
-                </div>
+                    <div className="order-9">
+                        <Label htmlFor="name">Work Address</Label>
+                        <Input type={type} placeholder={placeholder} value={GI_workAddress} onChange={(e) => setWorkAddress(e.target.value)} />
+                    </div>
 
 
-            </InputsContainer>
+                </InputsContainer>
 
-            <BackIcon onClick={onClick}
-                whileHover={{ scale: 0.9 }} transiton={{ type: 'spring', stifness: 300 }}>
-                <img src="../assets/Group 57.png" alt="arrow-forward" />
-            </BackIcon>
-        </section>
+                <BackIcon onClick={onClick}
+                    whileHover={{ scale: 0.9 }} transiton={{ type: 'spring', stifness: 300 }}>
+                    <img src="../assets/Group 57.png" alt="arrow-back" />
+                </BackIcon>
+            </motion.section>
+        </AnimatePresence>
     )
 }
 
@@ -103,7 +109,7 @@ const InputsContainer = styled.div`
     margin-top: 24px;
     padding:0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-column-gap: 36px;
     grid-row-gap: 24px;
 `
@@ -117,6 +123,6 @@ const Guardian_Info = styled.h1`
     font-size: var(--fontSize-xl);
     font-family: var(--montserrat) ;
     font-weight: var(--bold);
-    padding-top: 117px;
+    padding-top: 60px;
 `
 export default GuardiansInfo
