@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from 'react'
+import styled from 'styled-components'
+import { motion, AnimatePresence } from 'framer-motion'
 import Button from './Button'
 // import Select from 'react-select'
 // import countryList from 'react-select-country-list'
@@ -7,7 +9,19 @@ import GuardiansInfo from './GuardiansInfo'
 
 const AddStudent = ({ onAdd, toggleAddModal, }) => {
     const [GI_relationship, setRelationship] = useState('')
+    const [GI_title, setGITitle] = useState('')
+    const [GI_name, setGIName] = useState('')
+    const [GI_phoneNumber, setGIPhoneNumber] = useState('')
+    const [GI_email, setGIEmail] = useState('')
+    const [GI_address, setGIAddress] = useState('')
+    const [GI_occupation, setGIOccupation] = useState('')
+    const [GI_workMobileNumber, setGIWorkMobileNumber] = useState('')
+    const [GI_workAddress, setWorkAddress] = useState('')
+
     const [name, setName] = useState('')
+    const [middleName, setMiddleName] = useState('')
+    const [lastName, setLastName] = useState('')
+    // const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const [gender, setGender] = useState('')
     const [addrtype, setAddrtype] = useState(["Select Gender", "Male", "Female", "Cis", "Trans"])
@@ -48,68 +62,168 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
             return
         }
 
-        onAdd({ name, age, gender, picture, GI_relationship })
+        onAdd({ name, age, gender, picture, GI_relationship,
+            GI_title, GI_name, GI_phoneNumber, GI_email,
+            GI_address, GI_occupation, GI_workMobileNumber, GI_workAddress,
+        })
 
         setName('')
         setAge('')
         setGender('')
         setPicture('')
+        toggleAddModal();
     }
 
+    let placeholder = '...'
+    let type = 'text'
+
     return (
-        <div className="bg-gray-500 absolute top-10 right-0 h-screen w-10/12">
+        <AddModal>
             <form onSubmit={onSubmit}>
+                <p onClick={toggleAddModal}>X</p>
 
-                <div onClick={toggleAddModal} className="cursor-pointer">Close</div>
-
-                {swap && <div>
-                    <div className="form-control">
-                        <label>First name</label>
-                        <input type="text" placeholder="Name of student"
-                            value={name} onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label>Middle name</label>
-                        <input type="text" placeholder="Name of student"
-                            value={name} onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label>Last Name</label>
-                        <input type="text" placeholder="Name of student"
-                            value={name} onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label>Age</label>
-                        <input type="text" placeholder="Age"
-                            value={age} onChange={(e) => setAge(e.currentTarget.value)}
-                        />
-                    </div>
-
-                    <label for="role">Select Gender:</label>
-                    < select onChange={e => handleAddrTypeChange(e)}
+                <AnimatePresence>
+                    {swap && <motion.div
+                        initial={{ x: 300, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: 300, opacity: 0 }}
                     >
-                        {Add.map((address, key) =>
-                            <option key={key} value={key}>{address} </option>)
-                        }
-                    </select >
-                    <div onClick={swapPage}>FORWARD</div>
-                </div>}
+                        <div>
+                            <Upload></Upload>
+                        </div>
+
+                        <Basic_Info>Basic Info</Basic_Info>
+
+                        <InputsContainer>
+                            <div>
+                                <Label htmlFor="name">First name</Label>
+                                <Input type={type} placeholder={placeholder} value={name} onChange={(e) => setName(e.target.value)} />
+                            </div>
+
+
+                            <div>
+                                <Label htmlFor="middle-name">Middle name</Label>
+                                <Input type={type} placeholder={placeholder} value={middleName} onChange={(e) => setMiddleName(e.target.value)} />
+                            </div>
+
+                            <div>
+                                <Label htmlFor="middle-name">Last name</Label>
+                                <Input type={type} placeholder={placeholder} value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                            </div>
+
+                            <div>
+                                <Label htmlFor="last-name">Age</Label>
+                                <Input type={type} placeholder={placeholder} value={age} onChange={(e) => setAge(e.currentTarget.value)} />
+                            </div>
+
+                            <div>
+                                <Label htmlFor="role">Gender select</Label>
+                                < select onChange={e => handleAddrTypeChange(e)}>
+                                    {Add.map((address, key) =>
+                                        <option key={key} value={key}>{address} </option>)
+                                    }
+                                </select >
+                            </div>
+
+                            <ForwardIcon onClick={swapPage}
+                                whileHover={{ scale: 0.9 }} transiton={{ type: 'spring', stifness: 300 }} >
+                                <img src="../assets/Group 55.png" alt="arrow-forward" />
+                            </ForwardIcon>
+
+                        </InputsContainer>
+                    </motion.div>}
+                </AnimatePresence>
+
 
                 {/* <Select options={options} value={value.label} onChange={changeHandler} /> */}
-
                 {/* <input type="submit" value="Save"/> */}
 
-                {!swap && <GuardiansInfo relationship={GI_relationship} setRelationship={setRelationship} onClick={swapPage} />}
-                <Button text={'SAVE'} />
+                {!swap && <GuardiansInfo 
+                GI_relationship={GI_relationship} setGIRelationship={setRelationship}
+                GI_title={GI_title} setGITitle={setGITitle}
+                GI_name={GI_name} setGIName={setGIName}
+                GI_phoneNumber={GI_phoneNumber} setGIPhoneNumber={setGIPhoneNumber}
+                GI_email={GI_email} setGIEmail={setGIEmail}
+                GI_address={GI_address} setGIAddress={setGIAddress}
+                GI_occupation={GI_occupation} setGIOccupation={setGIOccupation}
+                GI_workMobileNumber={GI_workMobileNumber} setGIWorkMobileNumber={setGIWorkMobileNumber}
+                GI_workAddress={GI_workAddress} setWorkAddress={setWorkAddress}
+                onClick={swapPage} />}
+
+                <SaveButton>
+                    <Button text={'SAVE'} />
+                </SaveButton>
 
             </form>
 
-        </div>
+        </AddModal>
     )
 
 }
 
+const AddModal = styled.section`
+    background:var(--tertiary);
+    position: absolute;
+    top:64px;
+    right:0;
+    width: calc(100vw - 220px);
+    height: calc(100vh - 64px);
+    padding-left: 33px;
+    padding-right: 136px;
+`
+
+const Input = styled.input`
+    width: 100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #B5AAAA;
+    border-radius: 4px;
+    opacity: 1;
+    padding:8px 0px 8px 21px;
+
+    &:focus{
+        outline: none;
+    }
+    &::placeholder {
+        letter-spacing: 10px;
+    }
+`
+const Label = styled.label`
+    display: block;
+    font-size: var(--fontSize-s);
+    font-family: var(--montserrat);
+    margin-bottom: 7px;
+`
+const Upload = styled.div`
+    height: 100px;
+    width: 100px;
+    background-color: var(--neutral-b);
+    border-radius: 9999px;
+    margin-top: 90px;
+`
+
+const Basic_Info = styled.h1`
+    font-size: var(--fontSize-xl);
+    font-family: var(--montserrat) ;
+    font-weight: var(--bold);
+    padding-top: 45px;
+`
+const InputsContainer = styled.div`
+    margin-top: 24px;
+    padding:0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 36px;
+    grid-row-gap: 24px;
+`
+const ForwardIcon = styled(motion.div)`
+    position: absolute;
+    bottom: 40px;
+    right:144px;
+    cursor: pointer;
+`
+const SaveButton = styled.div`
+    position: absolute;
+    bottom: 40px;
+    left:33px;
+`
 export default AddStudent
