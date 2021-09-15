@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import AttendanceList from '../components/AttendanceList'
 
 const Attendance = () => {
     return (
         <AttendanceContainer>
-            Attendance
+           <AttendanceList />
         </AttendanceContainer>
     )
 }

@@ -52,14 +52,13 @@ export const rollCall = [
         name: 'Name',
         gender: 'Gender',
         age: 'Age',
-        category: 'heading'
+        category: 'heading',
+        week1:'Week 1',
+        week2:'Week 2',
+        week3:'Week 3',
+        week4:'Week 4',
+
     },
-    // {
-    //     picture: 'https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png',
-    //     name: 'Zimba Nwagbo',
-    //     gender: 'Male',
-    //     age: '23',
-    // },
 
     {
         name: 'Anazodo',
@@ -69,8 +68,8 @@ export const rollCall = [
         gender: 'Female',
         age: '23',
         nationality: 'Nigerian',
-        // let GI = Guardian_Info
 
+        // let GI = Guardian_Info
         GI_relationship: 'Father',
         GI_title: 'Chief',
         GI_name: 'Anazodo Augustus Gbaraba',
@@ -81,6 +80,35 @@ export const rollCall = [
         GI_workMobileNumber: '8394yru02',
         GI_workAddress: 'Uk, Houston',
 
+
+        week1:{
+            monday:'present',
+            tuesday:'present',
+            wednesday:'absent',
+            thursday:'absent',
+            friday:'present'
+        },
+        week2:{
+            monday:'present',
+            tuesday:'present',
+            wednesday:'absent',
+            thursday:'absent',
+            friday:'present'
+        },
+        week3:{
+            monday:'present',
+            tuesday:'present',
+            wednesday:'absent',
+            thursday:'absent',
+            friday:'present'
+        },
+        week4:{
+            monday:'present',
+            tuesday:'present',
+            wednesday:'absent',
+            thursday:'absent',
+            friday:'present'
+        },
     },
 
     {
@@ -91,8 +119,8 @@ export const rollCall = [
         gender: 'Male',
         age: '28',
         nationality: 'Ghana',
-        // let GI = Guardian_Info
 
+        // let GI = Guardian_Info
         GI_relationship: 'Father',
         GI_title: 'Chief',
         GI_name: 'Anazodo Augustus Gbaraba',
@@ -123,4 +151,11 @@ export const rollCall = [
     //     gender: 'Trans',
     //     age: '24',
     // },
+    // {
+    //     picture: 'https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png',
+    //     name: 'Zimba Nwagbo',
+    //     gender: 'Male',
+    //     age: '23',
+    // },
+
 ]
