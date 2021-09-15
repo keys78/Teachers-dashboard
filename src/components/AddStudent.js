@@ -121,11 +121,11 @@ const AddStudent = ({ onAdd, toggleAddModal, }) => {
 
                                 <div>
                                     <Label htmlFor="role">Gender select</Label>
-                                    < select onChange={e => handleAddrTypeChange(e)}>
+                                    <Select onChange={e => handleAddrTypeChange(e)}>
                                         {Add.map((address, key) =>
                                             <option key={key} value={key}>{address} </option>)
                                         }
-                                    </select >
+                                    </Select >
                                 </div>
 
                                 <ForwardIcon onClick={swapPage}
@@ -180,6 +180,21 @@ const AddModal = styled(motion.section)`
 `
 
 const Input = styled.input`
+    width: 100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #B5AAAA;
+    border-radius: 4px;
+    opacity: 1;
+    padding:8px 0px 8px 21px;
+
+    &:focus{
+        outline: none;
+    }
+    &::placeholder {
+        letter-spacing: 10px;
+    }
+`
+const Select = styled.select`
     width: 100%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #B5AAAA;
