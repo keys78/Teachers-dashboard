@@ -45,6 +45,8 @@ export const classTagsId = [
     },
 ]
 
+
+
 export const rollCall = [
     {
         numTag: 'S/N',
@@ -53,10 +55,10 @@ export const rollCall = [
         gender: 'Gender',
         age: 'Age',
         category: 'heading',
-        week1:'Week 1',
-        week2:'Week 2',
-        week3:'Week 3',
-        week4:'Week 4',
+        week1: 'Week 1',
+        week2: 'Week 2',
+        week3: 'Week 3',
+        week4: 'Week 4',
 
     },
 
@@ -81,34 +83,39 @@ export const rollCall = [
         GI_workAddress: 'Uk, Houston',
 
 
-        week1:{
-            monday:'present',
-            tuesday:'present',
-            wednesday:'absent',
-            thursday:'absent',
-            friday:'present'
-        },
-        week2:{
-            monday:'present',
-            tuesday:'present',
-            wednesday:'absent',
-            thursday:'absent',
-            friday:'present'
-        },
-        week3:{
-            monday:'present',
-            tuesday:'present',
-            wednesday:'absent',
-            thursday:'absent',
-            friday:'present'
-        },
-        week4:{
-            monday:'present',
-            tuesday:'present',
-            wednesday:'absent',
-            thursday:'absent',
-            friday:'present'
-        },
+        months: [
+            {
+                name:'January',
+                week1: {
+                    monday: 'present',
+                    tuesday: 'present',
+                    wednesday: 'absent',
+                    thursday: 'absent',
+                    friday: 'present'
+                },
+                week2: {
+                    monday: 'present',
+                    tuesday: 'present',
+                    wednesday: 'absent',
+                    thursday: 'absent',
+                    friday: 'present'
+                },
+                week3: {
+                    monday: 'present',
+                    tuesday: 'present',
+                    wednesday: 'absent',
+                    thursday: 'absent',
+                    friday: 'present'
+                },
+                week4: {
+                    monday: 'present',
+                    tuesday: 'present',
+                    wednesday: 'absent',
+                    thursday: 'absent',
+                    friday: 'present'
+                },
+            }
+        ]
     },
 
     {

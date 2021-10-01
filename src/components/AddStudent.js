@@ -2,8 +2,7 @@ import React, { useState, useMemo } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import Button from './Button'
-// import Select from 'react-select'
-// import countryList from 'react-select-country-list'
+
 import GuardiansInfo from './GuardiansInfo'
 
 

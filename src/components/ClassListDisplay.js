@@ -3,8 +3,27 @@ import Button from './Button'
 import { rollCall } from './data'
 import Search from './Search'
 import StudentsList from './StudentsList'
+import { useDispatch, useSelector } from 'react-redux'
+import AddNewStudent from './Folder_ClassList/AddNewStudent'
 
 const ClassListDisplay = ({toggleAddModal, searchTerm, setSearchTerm, showAddModal}) => {
+    const classList = useSelector((state) => state.classList);
+
+    const renderClassList = classList.map((val, index) => (
+        <div>
+            {index + 1}
+            {val.firstName}<br/>
+            {val.middleName}<br/>
+            {val.lastName}<br/>
+            {val.age}<br/>
+            {val.gender}<br/>
+            {val.country}<br/>
+        </div>
+    )) 
+
+
+
+
     return (
         <section>
              <div className="flex justify-between items-center">
@@ -27,7 +46,13 @@ const ClassListDisplay = ({toggleAddModal, searchTerm, setSearchTerm, showAddMod
                 )
             ))}
 
-            <StudentsList searchTerm={searchTerm} showAddModal={showAddModal} toggleAddModal={toggleAddModal}/>
+            <div>
+                {renderClassList}
+            </div>
+
+            <AddNewStudent />
+
+            {/* <StudentsList searchTerm={searchTerm} showAddModal={showAddModal} toggleAddModal={toggleAddModal}/> */}
         </div>
 
         </section>
