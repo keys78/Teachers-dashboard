@@ -11,26 +11,34 @@ import useStyles from './Styles';
 
 const AddNewStudent = () => {
 	const classes = useStyles();
+	const [rela, setRela] = useState('')
 
 	const [newStudent, setNewStudent] = useState({
 		firstName: "", middleName: "", lastName: "",
 		age: "", gender: "", country: "",
+		// guardianInfo: {
+			relationship: '',
+		// }
 	})
+	console.log(newStudent.firstName)
 
 	function handleChange(evt) {
-		const value = evt.target.value;
+		const value = evt.target.value;		
 		setNewStudent({
 			...newStudent,
-			[evt.target.id]: value
+			[evt.target.name]: value,
 		});
-	}
 
-	function resetForm() {
-		setNewStudent({
-			firstName: "", middleName: "", lastName: "",
-			age: "", gender: "", country: ""
-		})
 	}
+	// function handleChange2(evt) {
+	// 	const value = evt.target.value;
+	// 	console.log(value)		
+	// 	setNewStudent({
+	// 		...newStudent.guardianInfo,
+	// 		[evt.target.name]: value,
+	// 	});
+
+	// }
 
 
 	const dispatch = useDispatch();
@@ -39,21 +47,27 @@ const AddNewStudent = () => {
 		e.preventDefault();
 		dispatch(
 			addStudent({
-				...newStudent
-			})
+				...newStudent,
+			}),
 		);
-		resetForm();
+
 	};
 
 	return (
 		<form onSubmit={onSubmit}>
 			<CssBaseline />
-			<div className="inputs-holder">
+			<div className ="inputs-holder">
 
-				<TextField value={newStudent.firstName} onChange={handleChange} variant="outlined" label="First Name" id="firstName" fullWidth className={classes.inputField} />
-				<TextField value={newStudent.middleName} onChange={handleChange} variant="outlined" label="Middle Name" id="middleName" fullWidth className={classes.inputField} />
-				<TextField value={newStudent.lastName} onChange={handleChange} variant="outlined" label="Last Name" id="lastName" fullWidth className={classes.inputField} />
-				<TextField value={newStudent.age} onChange={handleChange} variant="outlined" label="Age" id="age" fullWidth className={classes.inputField} />
+				<TextField value={newStudent.firstName} onChange={handleChange} variant="outlined" label="First Name" name="firstName" fullWidth className={classes.inputField} />
+				<TextField value={newStudent.middleName} onChange={handleChange} variant="outlined" label="Middle Name" name="middleName" fullWidth className={classes.inputField} />
+				<TextField value={newStudent.lastName} onChange={handleChange} variant="outlined" label="Last Name" name="lastName" fullWidth className={classes.inputField} />
+				<TextField value={newStudent.age} onChange={handleChange} variant="outlined" label="Age" name="age" fullWidth className={classes.inputField} />
+
+
+				<TextField value={newStudent.relationship} onChange={handleChange} variant="outlined" label="Relationship" name="relationship" fullWidth className={classes.inputField} />
+				
+				
+				
 
 				<Autocomplete
 					options={genderList} id="combo-box-demo"

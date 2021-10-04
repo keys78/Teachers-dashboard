@@ -29,6 +29,7 @@ const classListSlice = createSlice({
     reducers: {
         addStudent: (state, action) => {
             let newStudent = action.payload
+           
             state.push(newStudent);
         },
 
