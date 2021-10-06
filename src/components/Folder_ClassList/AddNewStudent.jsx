@@ -4,12 +4,13 @@ import { addStudent } from '../../redux/classListSlice';
 import { countries, genderList, months } from '../../GlobalData'
 import { TextField, Box, Button, Grid, CssBaseline } from '@material-ui/core';
 import { Autocomplete, Alert, Snackbar } from '@mui/material';
+import MuiButton from '../MuiButton';
+// import { exam } from
 
 
 
 import { Save } from '@material-ui/icons'
 import useStyles from './Styles';
-
 
 
 const AddNewStudent = () => {
@@ -28,11 +29,16 @@ const AddNewStudent = () => {
 				title: '',
 			},
 
-			months
+			months,
+			exams:{
+				maths:'',
+				english:'',
+				bio:'',
+			},
+			
 		}
 	)
 
-	console.log(newStudent.guardianInfo.relationship)
 
 	function handleChange(evt) {
 		const value = evt.target.value;
@@ -133,8 +139,7 @@ const AddNewStudent = () => {
 
 			{/* {} */}
 
-
-			<Button type="submit" className={classes.submit_btn} startIcon={<Save />} color="primary" variant="contained">SAVE</Button>
+			<MuiButton text="SAVE" startIcon={<Save />} variant="contained" color="primary"/>
 		</form>
 	);
 };

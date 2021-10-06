@@ -21,7 +21,19 @@ const classListSlice = createSlice({
                 residence: '12 nano, by lofawe ire bustop',
                 occupation: 'Lawyer',
                 workMobile: '8947r29070',
-                worKAddress: '1 Milo OSIBAjkdshu dhusdlsd h'
+                worKAddress: '1 Milo OSIBAjkdshu dhusdlsd h',
+                maths: "45",
+                hfbsjklfblo:"hsdjck",
+            },
+            exams: {
+                maths: "54",
+                english: "40",
+                bio: "70"
+            },
+            ca: {
+                maths: "23",
+                english: "23",
+                bio: "23"
             },
             months: [
                 {
@@ -86,63 +98,10 @@ const classListSlice = createSlice({
                         friday: false
                     },
                 }
-            ]
-        },
-        {
-            id: (Date.now()),
-            firstName: 'Okeke',
-            middleName: 'Lasio',
-            lastName: 'Adekunle',
-            avatar: 'https://image.flaticon.com/icons/png/512/194/194938.png',
-            age: '20',
-            gender: 'Female',
-            country: 'Ghana',
-            guardianInfo: {
-                relationship: "Mother",
-                title: "MR",
-                name: "Onobikoko Lobato",
-                phoneNumber: "213456435687",
-                email: 'lel@gmail.com',
-                residence: '12 nano, by lofawe ire bustop',
-                occupation: 'Lawyer',
-                workMobile: '8947r29070',
-                worKAddress: '1 Milo OSIBAjkdshu dhusdlsd h'
-            },
-            months: [
-                {
-                    name:'January',
-                    week1: {
-                        monday: true,
-                        tuesday: false,
-                        wednesday: false,
-                        thursday: false,
-                        friday: false
-                    },
-                    week2: {
-                        monday: false,
-                        tuesday: false,
-                        wednesday: false,
-                        thursday: false,
-                        friday: false
-                    },
-                    week3: {
-                        monday: false,
-                        tuesday: false,
-                        wednesday: false,
-                        thursday: false,
-                        friday: false
-                    },
-                    week4: {
-                        monday: false,
-                        tuesday: false,
-                        wednesday: false,
-                        thursday: false,
-                        friday: true
-                    },
-                }
-            ]
-        },
+            ],
 
+            
+        },
 
         {
             id: (Date.now()),
@@ -196,7 +155,17 @@ const classListSlice = createSlice({
                         friday: true
                     },
                 }
-            ]
+            ],
+            exams: {
+                maths: "54",
+                english: "40",
+                bio: "70"
+            },
+            ca: {
+                maths: "23",
+                english: "23",
+                bio: "23"
+            },
         },
 
     ],
@@ -211,9 +180,13 @@ const classListSlice = createSlice({
             );
             state[index].months.week1.monday = action.payload.months.week1.monday
         },
+        addExam: (state, action) => {
+            let eScores = action.payload
+            state.push(eScores);
+        },
 
     },
 });
-export const { addStudent, toggleAttendance } = classListSlice.actions;
+export const { addStudent, toggleAttendance, addExam } = classListSlice.actions;
 
 export default classListSlice.reducer;

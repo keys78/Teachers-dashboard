@@ -7,6 +7,7 @@ import ClassList from './Pages/ClassList';
 import StudentDetails from './Pages/StudentDetails';
 import Results from './Pages/Results';
 import SchemeOfWork from './Pages/SchemeOfWork';
+import Exam from './Pages/Exam';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/attendance" component={Attendance} exact/>
         <Route path="/results" component={Results} exact/>
         <Route path="/schemeofwork" component={SchemeOfWork} exact/>
+        <Route path="/exam" component={Exam} exact/>
       </Switch>
     </Router>
   );
