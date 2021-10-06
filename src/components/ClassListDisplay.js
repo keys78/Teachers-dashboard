@@ -7,22 +7,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import AddNewStudent from './Folder_ClassList/AddNewStudent'
 
 const ClassListDisplay = ({toggleAddModal, searchTerm, setSearchTerm, showAddModal}) => {
-    // const classList = useSelector((state) => state.classList);
+    const classList = useSelector((state) => state.classList);
 
-    // const renderClassList = classList.map((val, index) => (
-    //     <div>
-    //         {index + 1}
-    //         {val.firstName}<br/>
-    //         {val.middleName}<br/>
-    //         {val.lastName}<br/>
-    //         {val.age}<br/>
-    //         {val.gender}<br/>
-    //         {val.country}<br/>
-    //         {val.guardianInfo.relationship}<br/>
-    //     </div>
-    // )) 
-
-
+    const renderClassList = classList.map((val, index) => (
+        <div className="fle">
+            <p>{index + 1}</p>
+            <p>{val.firstName}</p>
+            <p>{val.middleName}</p>
+            <p>{val.lastName}</p>
+            <p>{val.age}</p>
+            <p>{val.gender}</p>
+            <p>{val.country}</p>
+            <p>{val.guardianInfo.relationship}</p>
+            <p>{val.guardianInfo.title}</p>
+        </div>
+    )) 
 
 
     return (
@@ -48,7 +47,7 @@ const ClassListDisplay = ({toggleAddModal, searchTerm, setSearchTerm, showAddMod
             ))}
 
             <div>
-                {/* {renderClassList} */}
+                {renderClassList}
             </div>
 
             <AddNewStudent />

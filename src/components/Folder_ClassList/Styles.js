@@ -8,6 +8,13 @@ const useStyles = makeStyles((theme) => ({
 
     submit_btn: {
         marginTop:'1rem',
+    },
+    alert: {
+        position: 'fixed',
+        top:100,
+        display:'flex',
+        alignItems: 'center',
+        justifySelf: 'center',
     }
     
 }));

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addStudent } from '../../redux/classListSlice';
-import { countries, genderList } from '../../GlobalData'
+import { countries, genderList, months } from '../../GlobalData'
 import { TextField, Box, Button, Grid, CssBaseline } from '@material-ui/core';
-import Autocomplete from '@mui/material/Autocomplete';
+import { Autocomplete, Alert, Snackbar } from '@mui/material';
+
+
+
 import { Save } from '@material-ui/icons'
 import useStyles from './Styles';
 
@@ -11,63 +14,85 @@ import useStyles from './Styles';
 
 const AddNewStudent = () => {
 	const classes = useStyles();
-	const [rela, setRela] = useState('')
+	const [success, setSuccess] = useState(false)
 
-	const [newStudent, setNewStudent] = useState({
-		firstName: "", middleName: "", lastName: "",
-		age: "", gender: "", country: "",
-		// guardianInfo: {
-			relationship: '',
-		// }
-	})
-	console.log(newStudent.firstName)
+
+
+	const [newStudent, setNewStudent] = useState(
+		{
+			firstName: "", middleName: "", lastName: "",
+			age: "", gender: "", country: "",
+
+			guardianInfo: {
+				relationship: '',
+				title: '',
+			},
+
+			months
+		}
+	)
+
+	console.log(newStudent.guardianInfo.relationship)
 
 	function handleChange(evt) {
-		const value = evt.target.value;		
+		const value = evt.target.value;
 		setNewStudent({
 			...newStudent,
 			[evt.target.name]: value,
 		});
 
 	}
-	// function handleChange2(evt) {
-	// 	const value = evt.target.value;
-	// 	console.log(value)		
-	// 	setNewStudent({
-	// 		...newStudent.guardianInfo,
-	// 		[evt.target.name]: value,
-	// 	});
+	function handleChange2(evt) {
+		const value = evt.target.value;
+		setNewStudent({
+			...newStudent,
+			guardianInfo: {
+				...newStudent.guardianInfo,
+				[evt.target.name]: value,
+			}
 
-	// }
+		});
+
+	}
+
 
 
 	const dispatch = useDispatch();
-
 	const onSubmit = (e) => {
 		e.preventDefault();
 		dispatch(
 			addStudent({
 				...newStudent,
 			}),
+			setSuccess(true),
+			setTimeout(function () {
+				setSuccess(false)
+			}, 3000),
 		);
 
 	};
 
+
 	return (
 		<form onSubmit={onSubmit}>
 			<CssBaseline />
-			<div className ="inputs-holder">
+
+
+			<div className="inputs-holder">
+
+				{success && <Alert className={classes.alert} variant="filled" severity="success" >Student Added To List</Alert>}
 
 				<TextField value={newStudent.firstName} onChange={handleChange} variant="outlined" label="First Name" name="firstName" fullWidth className={classes.inputField} />
 				<TextField value={newStudent.middleName} onChange={handleChange} variant="outlined" label="Middle Name" name="middleName" fullWidth className={classes.inputField} />
 				<TextField value={newStudent.lastName} onChange={handleChange} variant="outlined" label="Last Name" name="lastName" fullWidth className={classes.inputField} />
 				<TextField value={newStudent.age} onChange={handleChange} variant="outlined" label="Age" name="age" fullWidth className={classes.inputField} />
 
+				<TextField value={newStudent.guardianInfo.relationship} onChange={handleChange2}
+					variant="outlined" label="Relationship" name="relationship" fullWidth className={classes.inputField} />
+				<TextField value={newStudent.guardianInfo.title} onChange={handleChange2}
+					variant="outlined" label="Title" name="title" fullWidth className={classes.inputField} />
 
-				<TextField value={newStudent.relationship} onChange={handleChange} variant="outlined" label="Relationship" name="relationship" fullWidth className={classes.inputField} />
-				
-				
-				
+
 
 				<Autocomplete
 					options={genderList} id="combo-box-demo"
@@ -105,6 +130,8 @@ const AddNewStudent = () => {
 					)}
 				/>
 			</div>
+
+			{/* {} */}
 
 
 			<Button type="submit" className={classes.submit_btn} startIcon={<Save />} color="primary" variant="contained">SAVE</Button>
