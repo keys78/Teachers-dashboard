@@ -26,7 +26,7 @@ const SchemeOfWork = () => {
             <ReactQuill theme="snow" value={value} onChange={setValue} />
             <MuiButton text="SAVE" startIcon={<Save />} onClick={saveScheme} variant="contained" color="primary" />
 
-            <textarea className="w-full border mt-12" rows="30" value={revalue}></textarea>
+            <textarea className="w-full border mt-12" rows="28" value={revalue}></textarea>
 
         </SchemeContainer>
     )
