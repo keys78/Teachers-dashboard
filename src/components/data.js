@@ -13,16 +13,16 @@ export const navLinks = [
         path: '/attendance'
     },
     {
-        text: 'Results',
-        path: '/results'
+        text: 'Scheme Of Work',
+        path: '/schemeofwork'
     },
     {
         text: 'Exam',
         path: '/exam'
     },
     {
-        text: 'Scheme Of Work',
-        path: '/schemeofwork'
+        text: 'Navigation & Locations',
+        path: '/navigations&locations'
     },
     {
         add: '+',

@@ -18,7 +18,7 @@ const StudentDetails = () => {
             </div>
             
             <Avatar>
-                <img className="rounded-full" src={state.students.picture} />
+                {/* <img className="rounded-full" src={state.students.picture} /> */}
             </Avatar>
 
             <Basic_Info>Basic Info</Basic_Info>
@@ -26,32 +26,32 @@ const StudentDetails = () => {
             <DetailsContainer>
                 <div>
                     <Label>First name</Label>
-                    <ItemTitle>{state.students.name}</ItemTitle>
+                    <ItemTitle>{state.classList.firstName}</ItemTitle>
                 </div>
 
                 <div>
                     <Label>Middle name</Label>
-                    <ItemTitle>{state.students.middleName}</ItemTitle>
+                    <ItemTitle>{state.classList.middleName}</ItemTitle>
                 </div>
 
                 <div>
                     <Label>Last name</Label>
-                    <ItemTitle>{state.students.lastname}</ItemTitle>
+                    <ItemTitle>{state.classList.lastName}</ItemTitle>
                 </div>
 
                 <div>
                     <Label>Gender</Label>
-                    <ItemTitle>{state.students.gender}</ItemTitle>
+                    <ItemTitle>{state.classList.gender}</ItemTitle>
                 </div>
 
                 <div>
                     <Label>Age</Label>
-                    <ItemTitle>{state.students.age}</ItemTitle>
+                    <ItemTitle>{state.classList.age}</ItemTitle>
                 </div>
 
                 <div>
                     <Label>Nationality</Label>
-                    <ItemTitle>{state.students.nationality}</ItemTitle>
+                    {/* <ItemTitle>{state.classList.nationality}</ItemTitle> */}
                 </div>
 
                 <Basic_Info>Attendance</Basic_Info>

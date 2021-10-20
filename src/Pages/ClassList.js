@@ -3,17 +3,17 @@ import styled from 'styled-components'
 import ClassListDisplay from '../components/ClassListDisplay'
 
 const ClassList = () => {
-    const [showAddModal, setShowAddModal] = useState()
+    const [showAddStudentModal, setShowAddStudentModal] = useState(false)
 
-    const toggleAddModal = () => {
-        setShowAddModal(!showAddModal)
+    const toggleAddStudentModal = () => {
+        setShowAddStudentModal(!showAddStudentModal)
     }
 
     const [searchTerm, setSearchTerm] = useState('')
 
     return (
         <ClassListContainer>
-            <ClassListDisplay searchTerm={searchTerm} setSearchTerm={setSearchTerm} showAddModal={showAddModal} toggleAddModal={toggleAddModal}/>
+            <ClassListDisplay searchTerm={searchTerm} setSearchTerm={setSearchTerm} showAddStudentModal={showAddStudentModal} toggleAddStudentModal={toggleAddStudentModal}/>
         </ClassListContainer>
     )
 }

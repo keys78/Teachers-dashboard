@@ -9,6 +9,7 @@ const classListSlice = createSlice({
             middleName: 'Emmanuel',
             lastName: 'Onyeyaforo',
             avatar: 'https://image.flaticon.com/icons/png/512/194/194938.png',
+            alt:'img',
             age: '30',
             gender: 'Male',
             country: 'Nigeria',
@@ -173,20 +174,21 @@ const classListSlice = createSlice({
         addStudent: (state, action) => {
             let newStudent = action.payload
             state.push(newStudent);
+            
         },
-        toggleAttendance: (state, action) => {
-            const index = state.findIndex(
-                (val) => val.id === action.payload.id
-            );
-            state[index].months.week1.monday = action.payload.months.week1.monday
-        },
-        addExam: (state, action) => {
-            let eScores = action.payload
-            state.push(eScores);
-        },
+        // toggleAttendance: (state, action) => {
+        //     const index = state.findIndex(
+        //         (val) => val.id === action.payload.id
+        //     );
+        //     state[index].months.week1.monday = action.payload.months.week1.monday
+        // },
+        // addExam: (state, action) => {
+        //     let eScores = action.payload
+        //     state.push(eScores);
+        // },
 
     },
 });
-export const { addStudent, toggleAttendance, addExam } = classListSlice.actions;
+export const { addStudent } = classListSlice.actions;
 
 export default classListSlice.reducer;
