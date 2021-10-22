@@ -18,16 +18,25 @@ const ScoreSheet = () => {
                         <p>{val.lastName}<br /></p>
                         <p>{val.gender.charAt(0)}<br /></p>
 
-                        <p>maths: {val.exams.maths}</p>
+                        {/* <p>maths: {val.exams.maths}</p>
                         <p>eng: {val.exams.english}</p>
-                        <p>bio: {val.exams.bio}</p>
-                        <NavLink
+                        <p>bio: {val.exams.bio}</p> */}
+
+                        {val.exams.map((exam, i) => (
+                            // return (
+                                <div key={i}>
+                                    <p>{exam.subject}</p>
+                                    <p>{exam.score}</p>
+                                </div>
+                            // )
+                        ))}
+                        {/* <NavLink
                             to={{
                                 pathname: `/exams/results/${val.firstName} ${val.lastName}`,
                                 state: { classList: val }
                             }}>
                             View Results
-                        </NavLink>
+                        </NavLink> */}
 
                     </div>
 

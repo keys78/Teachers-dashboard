@@ -26,11 +26,17 @@ const classListSlice = createSlice({
                 maths: "45",
                 hfbsjklfblo:"hsdjck",
             },
-            exams: {
-                maths: "54",
-                english: "40",
-                bio: "70"
-            },
+            exams:[
+                {
+                    subject:'maths',
+                    score:'50'
+                },
+                {
+                    subject:'goat',
+                    score:'501'
+                }
+            ],
+               
             ca: {
                 maths: "23",
                 english: "23",
@@ -157,11 +163,17 @@ const classListSlice = createSlice({
                     },
                 }
             ],
-            exams: {
-                maths: "54",
-                english: "40",
-                bio: "70"
-            },
+            exams:[
+                {
+                    subject:'literature',
+                    score:'70'
+                },
+                {
+                    subject:'who',
+                    score:'710'
+                }
+            ],
+
             ca: {
                 maths: "23",
                 english: "23",
@@ -176,19 +188,14 @@ const classListSlice = createSlice({
             state.push(newStudent);
             
         },
-        // toggleAttendance: (state, action) => {
-        //     const index = state.findIndex(
-        //         (val) => val.id === action.payload.id
-        //     );
-        //     state[index].months.week1.monday = action.payload.months.week1.monday
-        // },
         // addExam: (state, action) => {
-        //     let eScores = action.payload
-        //     state.push(eScores);
+        //     let exams = action.payload
+        //     state.newStudent.push([...exams])
+            
         // },
 
     },
 });
-export const { addStudent } = classListSlice.actions;
+export const { addStudent, addExam } = classListSlice.actions;
 
 export default classListSlice.reducer;

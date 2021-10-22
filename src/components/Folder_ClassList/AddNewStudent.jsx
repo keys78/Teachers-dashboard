@@ -1,45 +1,56 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { addStudent } from '../../redux/classListSlice';
+import { addStudent, addExam } from '../../redux/classListSlice';
 import { countries, genderList, months } from '../../GlobalData'
 import { TextField, Box, Button, Grid, CssBaseline } from '@material-ui/core';
 import { Autocomplete, Alert, Snackbar } from '@mui/material';
 import MuiButton from '../MuiButton';
-
-
-
 import { Save, Close } from '@material-ui/icons'
 import useStyles from './Styles';
 import GuardianInfo from './GuardianInfo';
+import ExamScores from './ExamScores';
 
 
 const AddNewStudent = ({ toggleAddStudentModal, showAddStudentModal }) => {
 	const classes = useStyles();
 	const [success, setSuccess] = useState(false)
+	const [swap, setSwap] = useState(true);
 
-	// const [toggleModal, setToggleModal] = useState(false)
+	const swapPage = () => {
+		setSwap(!swap)
+	}
 
 
+	const [exams, setExams] = useState(
+		[
+			{ subject: '', score: '' }
+		]
+	)
+
+	// const newExams = exams
 
 	const [newStudent, setNewStudent] = useState(
 		{
 			firstName: "", middleName: "", lastName: "",
 			age: "", gender: "", country: "",
-
+			avatar: 'https://image.flaticon.com/icons/png/512/194/194938.png',
 			guardianInfo: {
 				relationship: '',
 				title: '',
+				name: '',
+				phone: '',
+				email: '',
+				residence: '',
+				occupation: '',
+				workMobile: '',
+				workAddress: ''
+
 			},
 
 			months,
-			exams: [
-				{
-					name: '',
-					score: ''
-				}
-			],
-
+			exam:[...exams],
+			
 		}
 	)
 
@@ -64,19 +75,27 @@ const AddNewStudent = ({ toggleAddStudentModal, showAddStudentModal }) => {
 		});
 
 	}
-	function examScore(evt) {
-		const value = evt.target.value;
-		setNewStudent({
-			...newStudent,
-			exams: {
-				...newStudent.exams,
-				[evt.target.name]: value,
-			}
 
-		});
+	const handleScore = (e, index) => {
+		const { name, value } = e.target;
 
+		const item = [...exams];
+		item[index][name] = value;
+		setExams(item)
 	}
 
+	const handleAddInput = () => {
+		// setExams([...newExams,{ subject: '', score: '' }]);
+		const item = [...exams];
+		item.push({ subject: '', score: '' });
+		setExams(item)
+	}
+
+	const handleRemoveInput = (index) => {
+		const item = [...exams]
+		item.splice(index, 1);
+		setExams(item)
+	}
 
 
 	const dispatch = useDispatch();
@@ -91,6 +110,8 @@ const AddNewStudent = ({ toggleAddStudentModal, showAddStudentModal }) => {
 				setSuccess(false)
 			}, 3000),
 		);
+		
+		console.log(exams)
 		toggleAddStudentModal();
 	};
 
@@ -102,7 +123,7 @@ const AddNewStudent = ({ toggleAddStudentModal, showAddStudentModal }) => {
 			<CssBaseline />
 			<MuiButton onClick={toggleAddStudentModal} startIcon={<Close />} />
 
-			<div className="inputs-holder">
+			{swap && <div className="inputs-holder">
 
 				{success && <Alert className={classes.alert} variant="filled" severity="success" >Student Added To List</Alert>}
 
@@ -111,16 +132,7 @@ const AddNewStudent = ({ toggleAddStudentModal, showAddStudentModal }) => {
 				<TextField value={newStudent.lastName} onChange={handleChange} variant="outlined" label="Last Name" name="lastName" fullWidth className={classes.inputField} />
 				<TextField value={newStudent.age} onChange={handleChange} variant="outlined" label="Age" name="age" fullWidth className={classes.inputField} />
 
-				{/* <TextField value={newStudent.guardianInfo.relationship} onChange={handleChange2}
-					variant="outlined" label="Relationship" name="relationship" fullWidth className={classes.inputField} /> */}
-				<TextField value={newStudent.guardianInfo.title} onChange={handleChange2}
-					variant="outlined" label="Title" name="title" fullWidth className={classes.inputField} />
 
-
-				<TextField value={newStudent.exams.maths} onChange={examScore}
-					variant="outlined" label="Maths" name="maths" fullWidth className={classes.inputField} />
-				<TextField value={newStudent.exams.english} onChange={examScore}
-					variant="outlined" label="English" name="english" fullWidth className={classes.inputField} />
 
 
 
@@ -160,8 +172,54 @@ const AddNewStudent = ({ toggleAddStudentModal, showAddStudentModal }) => {
 					)}
 				/>
 			</div>
+			}
 
-			<GuardianInfo handleChange2={handleChange2} guardianRelationship={newStudent.guardianInfo.relationship} />
+			{exams.map((list, i) => {
+				return (
+					<div key={i} className="mt-20 flex gap-4">
+						<TextField value={list.subject} onChange={e => handleScore(e, i)}
+							variant="outlined" label="Subject" name="subject" fullWidth className={classes.inputField} />
+						<TextField value={list.score} onChange={e => handleScore(e, i)}
+							variant="outlined" label="Score" name="score" fullWidth className={classes.inputField} />
+
+						{exams.length - 1 === i && <input type="button" value="add" onClick={handleAddInput} />}
+						{exams.length !== 1 && <input type="button" value="remove" onClick={handleRemoveInput} />}
+
+					</div>
+				)
+			})}
+
+
+			<pre>
+				{JSON.stringify(newStudent, null, 2)}
+				<div className="mt-20">
+					{JSON.stringify(exams, null, 2)}
+				</div>
+				<div className="mt-20">
+					{/* {JSON.stringify(newScores, null, 2)} */}
+				</div>
+
+			</pre>
+
+			{!swap && <GuardianInfo handleChange2={handleChange2}
+				guardianRelationship={newStudent.guardianInfo.relationship}
+				guardianTitle={newStudent.guardianInfo.title}
+				guardianName={newStudent.guardianInfo.name}
+				guardianPhoneNumber={newStudent.guardianInfo.phone}
+				guardianEmail={newStudent.guardianInfo.email}
+				guardianResidence={newStudent.guardianInfo.residence}
+				guardianOccupation={newStudent.guardianInfo.occupation}
+				guardianWorkMobile={newStudent.guardianInfo.workMobile}
+				guardianWorkAddress={newStudent.guardianInfo.workAddress}
+				usedStyle={classes.inputField}
+
+			/>
+
+			}
+
+			{/* <ExamScores handleExamScores={handleExamScores}/> */}
+
+			<p onClick={swapPage}>swap</p>
 
 			<MuiButton type="submit" text="SAVE" startIcon={<Save />} variant="contained" color="primary" />
 		</StudentForm>
