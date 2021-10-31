@@ -51,7 +51,7 @@ const StudentDetails = () => {
 
                 <div>
                     <Label>Nationality</Label>
-                    {/* <ItemTitle>{state.classList.nationality}</ItemTitle> */}
+                    <ItemTitle>{state.classList.country}</ItemTitle>
                 </div>
 
                 <Basic_Info>Attendance</Basic_Info>

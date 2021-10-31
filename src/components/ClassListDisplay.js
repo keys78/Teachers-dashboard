@@ -28,6 +28,7 @@ const ClassListDisplay = ({ toggleAddStudentModal, searchTerm, setSearchTerm, sh
             <p>{val.country}</p>
             <p>{val.guardianInfo.relationship}</p>
             <p>{val.guardianInfo.title}</p>
+            Hello
         </NavLink>
     ))
 

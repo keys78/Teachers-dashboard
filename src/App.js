@@ -19,9 +19,9 @@ function App() {
         <Route path="/classlist" component={ClassList} exact/>
         <Route path="/classlist/studentdetails/:id" component={StudentDetails} />
         <Route path="/attendance" component={Attendance} exact/>
-        <Route path="/exams/results/:id" component={Results}/>
         <Route path="/schemeofwork" component={SchemeOfWork} exact/>
         <Route path="/exam" component={Exam} exact/>
+        <Route path="/exams/results/:id" component={Results}/>
       </Switch>
     </Router>
   );
